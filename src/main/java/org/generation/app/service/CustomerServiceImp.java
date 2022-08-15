@@ -6,35 +6,23 @@ import org.generation.app.entity.Customer;
 import org.generation.app.repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 @Service
 public class CustomerServiceImp implements ICustomerService {
-	
+
 	@Autowired
 	ICustomerRepository customerRepository;
-
+	
 	@Override
-	public List<Customer> findAllCustomers() {
+	public List<Customer> findAllCustomers() {		
 		return (List<Customer>) customerRepository.findAll();
 	}
 
-
 	@Override
-	public Customer findCustomerById(Long Id) {
-		return customerRepository.findById(Id).orElse(null);
-	}
-
-	@Override
-	public Customer saveCustomer(Customer customer) {
+	public Customer saveCustomer(Customer customer) {		
 		return customerRepository.save(customer);
 	}
 
-//	@Override
-//	public void deleteCusomerById(Long id) {
-//		// TODO Auto-generated method stub
-//		customerRepository.deleteById(id);
-//		
-//
-//	}
 	@Override
 	public Customer deleteCustomerById(Long id) {
 		Customer customer= findCustomerById(id);
@@ -42,5 +30,9 @@ public class CustomerServiceImp implements ICustomerService {
 		return customer;
 	}
 
+	@Override
+	public Customer findCustomerById(Long id) {
+		return customerRepository.findById(id).orElse(null);
+	}
 
 }

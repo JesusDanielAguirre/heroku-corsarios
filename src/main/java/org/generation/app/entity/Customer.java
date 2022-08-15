@@ -12,13 +12,13 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="customer_data")
-public class Customer implements Serializable{
+public class Customer implements Serializable{ 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idCustomer;//id_customer
+	private Long idCustomer; //id_customer
 	@Column(name="first_name")
-	private String firstName;//first_name
+	private String firstName; //first_name
 	private String lastName;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -27,5 +27,5 @@ public class Customer implements Serializable{
 //	@OneToMany
 //	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 //	private List<Order> orders;
-
+	
 }
